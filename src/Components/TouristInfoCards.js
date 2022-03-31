@@ -3,8 +3,12 @@ import React from "react";
 const TouristInfo = () => {
   return (
     <>
-      <div>
-        <img src="/images/Glasgow.jpg" className="card-img-top" />
+      <div className="card">
+        <img
+          src="/images/Glasgow.jpg"
+          className="card-img-top"
+          alt="manchesterrt"
+        />
         <p>
           From independent stores to high street retailers, Glasgow is the best
           shopping city. Glasgow's city centre is home to flagship stores,
@@ -28,7 +32,11 @@ const TouristInfo = () => {
           explored on foot or bike. The city region is easily navigated, with
           great transport links both in and around Greater Manchester.
         </p>
-        <img src="/images/manchester.jpg" className="card-img-top" />
+        <img
+          src="/images/manchester.jpg"
+          className="card-img-top"
+          alt="manchesterrt"
+        />
         <div className="card-body">
           <a href="http://visitmanchester.com" className="btn btn-primary">
             Go Manchester
@@ -36,7 +44,11 @@ const TouristInfo = () => {
         </div>
       </div>
       <div className="card">
-        <img src="/images/london.jpg" className="card-img-top" />
+        <img
+          src="/images/london.jpg"
+          className="card-img-top"
+          alt="manchesterrt"
+        />
         <p>
           See world-famous London attractions, iconic landmarks and lesser-known
           sights. Most attractions require advanced booking for a timeslot, even
