@@ -4,7 +4,6 @@ const Restaurant = () => {
   function orderOne() {
     return setOrders(pizzaOrder => pizzaOrder + 1);
   }
-  const pizzas = 0;
   const [orders, setOrders] = useState(0);
   return (
     <div>
