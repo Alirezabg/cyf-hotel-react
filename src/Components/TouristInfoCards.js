@@ -3,7 +3,7 @@ import React from "react";
 const TouristInfo = () => {
   return (
     <>
-      <div>
+      <div className="card">
         <img src="/images/Glasgow.jpg" className="card-img-top" />
         <p>
           From independent stores to high street retailers, Glasgow is the best
