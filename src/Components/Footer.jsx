@@ -2,9 +2,11 @@ import React from "react";
 const Footer = props => {
   return (
     <>
-      {props.address.map(add => (
-        <p>{add}</p>
-      ))}
+      <ul>
+        {props.address.map(add => (
+          <li>{add}</li>
+        ))}
+      </ul>
     </>
   );
 };
