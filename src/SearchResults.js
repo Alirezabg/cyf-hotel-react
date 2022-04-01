@@ -1,7 +1,12 @@
 import moment from "moment";
-import React from "react";
+import React, { useState } from "react";
 const SearchResults = props => {
-  console.log("from consolelog", props.guest);
+  console.log("from console's", props.guest);
+  const [rowColor, setRowColor] = useState(false);
+  function highlightRow() {
+    setRowColor(!rowColor);
+  }
+
   return (
     <table class="table">
       <thead>
@@ -19,7 +24,12 @@ const SearchResults = props => {
       </thead>
       <tbody>
         {props.guest.map(gst => (
-          <tr>
+          <tr
+            key={gst.id}
+            className={"highlighted"}
+            // className={rowColor ? "highlighted" : null}
+            onClick={highlightRow}
+          >
             <td>{gst.id}</td>
             <td>{gst.title}</td>
             <td>{gst.firstName}</td>
