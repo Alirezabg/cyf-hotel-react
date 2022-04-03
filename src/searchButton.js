@@ -1,9 +1,11 @@
 import React from "react";
 
-const SearchButton = () => {
+const SearchButton = props => {
   return (
     <>
-      <button className="btn btn-primar y">Search</button>
+      <button className="btn btn-primary" onClick={props.onSubmitHandler}>
+        Search
+      </button>
     </>
   );
 };

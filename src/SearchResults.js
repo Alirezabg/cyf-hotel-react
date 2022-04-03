@@ -1,12 +1,11 @@
 import moment from "moment";
 import React, { useState } from "react";
+import Table from "./table";
+import CustomerProfile from "./CustomerProfile.js";
+
 const SearchResults = props => {
   console.log("from console's", props.guest);
-  const [rowColor, setRowColor] = useState(false);
-  function highlightRow() {
-    setRowColor(!rowColor);
-  }
-
+  const [costumerProfileShow, setCostumerProfileShow] = useState("");
   return (
     <table class="table">
       <thead>
@@ -20,30 +19,31 @@ const SearchResults = props => {
           <th scope="col">Check-in Date</th>
           <th scope="col">Check-out Date</th>
           <th scope="col">numberOfNights</th>
+          <th scope="col">Show Profile</th>
         </tr>
       </thead>
       <tbody>
         {props.guest.map(gst => (
-          <tr
-            key={gst.id}
-            className={"highlighted"}
-            // className={rowColor ? "highlighted" : null}
-            onClick={highlightRow}
-          >
-            <td>{gst.id}</td>
-            <td>{gst.title}</td>
-            <td>{gst.firstName}</td>
-            <td>{gst.surname}</td>
-            <td>{gst.email}</td>
-            <td>{gst.roomId}</td>
-            <td>{gst.checkInDate}</td>
-            <td>{gst.checkOutDate}</td>
-            <td>
-              {moment(gst.checkOutDate).diff(moment(gst.checkInDate), "days")}
-            </td>
-          </tr>
+          <>
+            <Table
+              id={gst.id}
+              setCostumerProfileShow={setCostumerProfileShow}
+              title={gst.title}
+              firstName={gst.firstName}
+              surname={gst.surname}
+              email={gst.email}
+              roomId={gst.roomId}
+              checkInDate={gst.checkInDate}
+              checkOutDate={gst.checkOutDate}
+              daysReserved={moment(gst.checkOutDate).diff(
+                moment(gst.checkInDate),
+                "days"
+              )}
+            />
+          </>
         ))}
       </tbody>
+      <CustomerProfile id={costumerProfileShow} />
     </table>
   );
 };
