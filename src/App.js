@@ -7,7 +7,11 @@ import Footer from "./Components/Footer";
 
 import Restaurant from "./Restaurant";
 const App = () => {
-  const bookingData = "https://cyf-react.glitch.me/";
+  const bookingData = [
+    "https://cyf-react.glitch.me/",
+    "https://cyf-react.glitch.me/delayed",
+    "https://cyf-react.glitch.me/error"
+  ];
   const footerData = [
     "123 Fake Street, London, E1 4UD",
     "hello@fakehotel.com",
@@ -18,7 +22,7 @@ const App = () => {
     <div className="App">
       <Heading />
       <TouristInfo />
-      <Bookings bookingData={bookingData} />
+      <Bookings bookingData={bookingData[1]} />
 
       <Restaurant />
       <Footer address={footerData} />
