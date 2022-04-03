@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Heading from "./Heading";
 import TouristInfo from "./Components/TouristInfoCards";
 import Bookings from "./Bookings";
