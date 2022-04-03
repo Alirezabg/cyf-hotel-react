@@ -20,7 +20,7 @@ const App = () => {
     <div className="App">
       <Heading />
       <TouristInfo />
-      <Bookings bookings={bookings} />
+      <Bookings bookings={bookings} setBookings={setBookings} />
 
       <Restaurant />
       <Footer address={footerData} />
