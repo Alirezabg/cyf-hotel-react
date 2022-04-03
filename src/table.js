@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 const Table = props => {
   const [rowColor, setRowColor] = useState(false);
+
   function highlightRow(e) {
     setRowColor(!rowColor);
+  }
+  function setId() {
+    props.setCostumerProfileShow(props.id);
   }
   return (
     <>
@@ -15,8 +19,10 @@ const Table = props => {
         <td>{props.roomId}</td>
         <td>{props.checkInDate}</td>
         <td>{props.checkOutDate}</td>
-        <td />
-        {props.daysReserved}
+        <td>{props.daysReserved}</td>
+        <td>
+          <button onClick={setId}>Show Profile</button>
+        </td>
       </tr>
     </>
   );

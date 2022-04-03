@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Heading from "./Heading";
 import TouristInfo from "./Components/TouristInfoCards";
 import Bookings from "./Bookings";
 import "./App.css";
 import Footer from "./Components/Footer";
-import fakeBookings from "./data/fakeBookings.json";
 
 import Restaurant from "./Restaurant";
 const App = () => {
-  const [bookings, setBookings] = useState(fakeBookings);
-
+  const bookingData = "https://cyf-react.glitch.me/";
   const footerData = [
     "123 Fake Street, London, E1 4UD",
     "hello@fakehotel.com",
@@ -20,7 +18,7 @@ const App = () => {
     <div className="App">
       <Heading />
       <TouristInfo />
-      <Bookings bookings={bookings} setBookings={setBookings} />
+      <Bookings bookingData={bookingData} />
 
       <Restaurant />
       <Footer address={footerData} />

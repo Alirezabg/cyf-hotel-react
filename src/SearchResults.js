@@ -1,9 +1,11 @@
 import moment from "moment";
-import React from "react";
+import React, { useState } from "react";
 import Table from "./table";
+import CustomerProfile from "./CustomerProfile.js";
+
 const SearchResults = props => {
   console.log("from console's", props.guest);
-
+  const [costumerProfileShow, setCostumerProfileShow] = useState("");
   return (
     <table class="table">
       <thead>
@@ -17,6 +19,7 @@ const SearchResults = props => {
           <th scope="col">Check-in Date</th>
           <th scope="col">Check-out Date</th>
           <th scope="col">numberOfNights</th>
+          <th scope="col">Show Profile</th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +27,7 @@ const SearchResults = props => {
           <>
             <Table
               id={gst.id}
+              setCostumerProfileShow={setCostumerProfileShow}
               title={gst.title}
               firstName={gst.firstName}
               surname={gst.surname}
@@ -39,6 +43,7 @@ const SearchResults = props => {
           </>
         ))}
       </tbody>
+      <CustomerProfile id={costumerProfileShow} />
     </table>
   );
 };
