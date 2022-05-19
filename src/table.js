@@ -10,16 +10,34 @@ const Table = props => {
   }
   return (
     <>
-      <tr className={rowColor ? "highlighted" : null} onClick={highlightRow}>
-        <td>{props.id}</td>
-        <td>{props.title}</td>
-        <td>{props.firstName}</td>
-        <td>{props.surname}</td>
-        <td>{props.email}</td>
-        <td>{props.roomId}</td>
-        <td>{props.checkInDate}</td>
-        <td>{props.checkOutDate}</td>
-        <td>{props.daysReserved}</td>
+      <tr>
+        <td className={rowColor ? "highlighted" : null} onClick={highlightRow}>
+          {props.id}
+        </td>
+        <td className={rowColor ? "highlighted" : null} onClick={highlightRow}>
+          {props.title}
+        </td>
+        <td className={rowColor ? "highlighted" : null} onClick={highlightRow}>
+          {props.firstName}
+        </td>
+        <td className={rowColor ? "highlighted" : null} onClick={highlightRow}>
+          {props.surname}
+        </td>
+        <td className={rowColor ? "highlighted" : null} onClick={highlightRow}>
+          {props.email}
+        </td>
+        <td className={rowColor ? "highlighted" : null} onClick={highlightRow}>
+          {props.roomId}
+        </td>
+        <td className={rowColor ? "highlighted" : null} onClick={highlightRow}>
+          {props.checkInDate}
+        </td>
+        <td className={rowColor ? "highlighted" : null} onClick={highlightRow}>
+          {props.checkOutDate}
+        </td>
+        <td className={rowColor ? "highlighted" : null} onClick={highlightRow}>
+          {props.daysReserved}
+        </td>
         <td>
           <button onClick={setId}>Show Profile</button>
         </td>
