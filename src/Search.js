@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import SearchButton from "./searchButton";
 
 const Search = props => {
-  const [searchInput, setSearchInput] = useState("");
+  // const [searchInput, setSearchInput] = useState("");
+
   function handleSearchInput(event) {
-    setSearchInput(event.target.value);
+    props.setSearchInput(event.target.value);
   }
   const onSubmitHandler = e => {
     e.preventDefault();
-    props.search(searchInput);
+    props.search(props.searchInput);
   };
 
   return (
@@ -22,7 +23,7 @@ const Search = props => {
             <label htmlFor="customerName">Customer name</label>
             <div className="search-row">
               <input
-                value={searchInput}
+                value={props.searchInput}
                 type="text"
                 id="customerName"
                 className="form-control"
@@ -30,7 +31,7 @@ const Search = props => {
                 onChange={handleSearchInput}
               />{" "}
               <SearchButton
-                searchInput={searchInput}
+                searchInput={props.searchInput}
                 onSubmitHandler={onSubmitHandler}
               />
             </div>

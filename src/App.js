@@ -12,6 +12,11 @@ const App = () => {
     "https://cyf-react.glitch.me/delayed",
     "https://cyf-react.glitch.me/error"
   ];
+  const bookingDataLocalServer = [
+    "http://localhost:3001/bookings",
+    "http://localhost:3001/delayed",
+    "http://localhost:3001/error"
+  ];
   const footerData = [
     "123 Fake Street, London, E1 4UD",
     "hello@fakehotel.com",
@@ -22,7 +27,7 @@ const App = () => {
     <div className="App">
       <Heading />
       <TouristInfo />
-      <Bookings bookingData={bookingData[1]} />
+      <Bookings bookingData={bookingDataLocalServer[0]} />
 
       <Restaurant />
       <Footer address={footerData} />

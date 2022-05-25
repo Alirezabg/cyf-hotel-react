@@ -7,13 +7,17 @@ const Bookings = props => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [filteredBookings, setFilteredBookings] = useState(bookings);
+  const [searchInput, setSearchInput] = useState("");
 
   const search = searchVal => {
     setFilteredBookings(
       bookings.filter(
         guest =>
-          guest.firstName.toLowerCase().includes(searchVal.toLowerCase()) ||
-          guest.surname.toLowerCase().includes(searchVal.toLowerCase())
+          !searchVal ||
+          (guest.firstName &&
+            guest.firstName.toLowerCase().includes(searchVal.toLowerCase())) ||
+          (guest.surname &&
+            guest.surname.toLowerCase().includes(searchVal.toLowerCase()))
       )
     );
   };
@@ -29,6 +33,15 @@ const Bookings = props => {
         setLoading(true);
       });
   }, [props]);
+  const filterData = bookings.filter(
+    guest =>
+      !searchInput ||
+      (guest.firstName &&
+        guest.firstName.toLowerCase().includes(searchInput.toLowerCase())) ||
+      (guest.surname &&
+        guest.surname.toLowerCase().includes(searchInput.toLowerCase()))
+  );
+
   if (!loading) {
     return (
       <h2 className="border border-light p-3 mb-4 text-center">
@@ -46,8 +59,12 @@ const Bookings = props => {
     return (
       <div className="App-content">
         <div className="container">
-          <Search search={search} />
-          <SearchResults guest={filteredBookings} />
+          <Search
+            search={search}
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+          />
+          <SearchResults guest={filterData} />
         </div>
       </div>
     );
