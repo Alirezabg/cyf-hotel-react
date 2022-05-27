@@ -4,7 +4,7 @@ import Table from "./table";
 import CustomerProfile from "./CustomerProfile.js";
 
 const SearchResults = props => {
-  console.log("from console's", props.guest);
+  // console.log("from console's", props.guest);
   const [costumerProfileShow, setCostumerProfileShow] = useState("");
   return (
     <table class="table">

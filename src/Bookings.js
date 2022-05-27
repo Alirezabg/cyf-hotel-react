@@ -5,21 +5,23 @@ import SearchResults from "./SearchResults.js";
 const Bookings = props => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
+  console.log("Hello I'm booking js", bookings.length);
+
   const [error, setError] = useState(false);
-  const [filteredBookings, setFilteredBookings] = useState(bookings);
+  // const [filteredBookings, setFilteredBookings] = useState(bookings);
   const [searchInput, setSearchInput] = useState("");
 
   const search = searchVal => {
-    setFilteredBookings(
-      bookings.filter(
-        guest =>
-          !searchVal ||
-          (guest.firstName &&
-            guest.firstName.toLowerCase().includes(searchVal.toLowerCase())) ||
-          (guest.surname &&
-            guest.surname.toLowerCase().includes(searchVal.toLowerCase()))
-      )
-    );
+    // setFilteredBookings(
+    //   bookings.filter(
+    //     guest =>
+    //       !searchVal ||
+    //       (guest.firstName &&
+    //         guest.firstName.toLowerCase().includes(searchVal.toLowerCase())) ||
+    //       (guest.surname &&
+    //         guest.surname.toLowerCase().includes(searchVal.toLowerCase()))
+    //   )
+    // );
   };
   useEffect(() => {
     fetch(props.bookingData)
@@ -29,10 +31,14 @@ const Bookings = props => {
           setError(true);
         }
         setBookings(data);
-        setFilteredBookings(data);
+        console.log(
+          "Im use effect I ran because the user changed search input",
+          searchInput
+        );
+        // setFilteredBookings(data);
         setLoading(true);
       });
-  }, [props]);
+  }, [searchInput]);
   const filterData = bookings.filter(
     guest =>
       !searchInput ||
@@ -41,6 +47,7 @@ const Bookings = props => {
       (guest.surname &&
         guest.surname.toLowerCase().includes(searchInput.toLowerCase()))
   );
+  console.log("I just filter data", filterData.length);
 
   if (!loading) {
     return (
